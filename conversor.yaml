@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversor
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: conversor
+  template:
+    metadata:
+      labels:  
+        app: conversor
+    spec:
+      containers:
+        - name: conversor
+          image: bmichelad/api-conversao:v1
+          ports:
+            - containerPort: 5000
